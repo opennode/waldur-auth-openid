@@ -1,8 +1,12 @@
-from __future__ import unicode_literals
+from django.conf.urls import include
+from django.conf.urls import patterns
+from django.conf.urls import url
 
-from . import views
-
-# Url registers should be here!
 
 def register_in(router):
     pass
+
+
+urlpatterns = patterns('',
+    url(r'^api-auth/openid/', include('django_openid_auth.urls'), name='auth-openid'),
+)
