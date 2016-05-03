@@ -19,13 +19,6 @@ try:
     action = sys.argv[1]
 except IndexError:
     pass
-
-# RPM installation does not need oslo, cliff and stevedore libs -
-# they are required only for installation with setuptools
-try:
-    action = sys.argv[1]
-except IndexError:
-    pass
 else:
     if action in ['develop', 'install', 'test', 'bdist_egg']:
         install_requires += [
