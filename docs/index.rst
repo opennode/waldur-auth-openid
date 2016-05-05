@@ -1,5 +1,5 @@
-Welcome to NodeConductor NodeConductor OpenID plugin's documentation!
-================================================================
+Welcome to NodeConductor OpenID plugin's documentation!
+=======================================================
 
 NodeConductor plugin bringing OpenID-based authentication support.
 
@@ -30,7 +30,7 @@ Endpoints
 License
 -------
 
-NodeConductor NodeConductor OpenID plugin is open-source under Apache v2 license.
+NodeConductor OpenID plugin is open-source under Apache v2 license.
 
 
 Indices and tables

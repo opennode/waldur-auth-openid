@@ -1,8 +1,8 @@
 from django.apps import AppConfig
 
 
-class NodeConductorOpenIDConfig(AppConfig):
-    name = 'nodeconductor_openid'
+class NodeConductorAuthOpenIDConfig(AppConfig):
+    name = 'nodeconductor_auth_openid'
     verbose_name = 'NodeConductor OpenID'
 
     def ready(self):

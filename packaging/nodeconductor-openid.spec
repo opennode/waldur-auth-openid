@@ -1,4 +1,4 @@
-Name: nodeconductor-openid
+Name: nodeconductor-auth-openid
 Summary: NodeConductor OpenID plugin
 Group: Development/Libraries
 Version: 0.1.0
