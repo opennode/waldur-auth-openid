@@ -85,17 +85,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/nodeconductor-openid.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/nodeconductor-auth-openid.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/nodeconductor-openid.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/nodeconductor-auth-openid.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/nodeconductor-openid"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/nodeconductor-openid"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/nodeconductor-auth-openid"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/nodeconductor-auth-openid"
 	@echo "# devhelp"
 
 epub:
