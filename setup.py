@@ -14,8 +14,8 @@ install_requires = [
 
 
 setup(
-    name='nodeconductor-openid',
-    version='0.1.0.dev0',
+    name='nodeconductor-auth-openid',
+    version='0.1.0',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://nodeconductor.com',
@@ -30,7 +30,7 @@ setup(
     },
     entry_points={
         'nodeconductor_extensions': (
-            'nodeconductor_openid = nodeconductor_openid.extension:NodeConductorOpenIDExtension',
+            'nodeconductor_auth_openid = nodeconductor_auth_openid.extension:NodeConductorAuthOpenIDExtension',
         ),
     },
     include_package_data=True,
