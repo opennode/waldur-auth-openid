@@ -35,5 +35,8 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 
 %changelog
+* Tue May 31 2016 Jenkins <jenkins@opennodecloud.com> - 0.1.0-1.el7
+- New upstream release
+
 * Tue May 3 2016 Juri Hudolejev <juri@opennodecloud.com> - 0.1.0-1.el7
 - Initial version of the package
