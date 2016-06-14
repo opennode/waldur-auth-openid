@@ -9,7 +9,7 @@ dev_requires = [
 
 install_requires = [
     'django-openid-auth',
-    'nodeconductor>=0.96.0',
+    'nodeconductor>=0.101.2',
 ]
 
 setup(
