@@ -5,17 +5,28 @@ from nodeconductor.core import NodeConductorExtension
 
 class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
     class Settings:
+
+        # the library python-openid does not support a json session serializer
+        # <openid.yadis.manager.YadisServiceManager> is not JSON serializable
+        # https://github.com/openid/python-openid/issues/17
         SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
+        # Should users be created when new OpenIDs are used to log in?
         OPENID_CREATE_USERS = True
-        OPENID_UPDATE_DETAILS_FROM_SREG = True
+
+        # Generate username from email?
+        OPENID_USE_EMAIL_FOR_USERNAME = True
+
         NODECONDUCTOR_AUTH_OPENID = {
             'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/'
         }
 
     @staticmethod
     def update_settings(settings):
-        settings['AUTHENTICATION_BACKENDS'] += ('django_openid_auth.auth.OpenIDBackend',)
+        # Enable customer OpenID authentication backend
+        settings['AUTHENTICATION_BACKENDS'] += ('nodeconductor_auth_openid.auth.NodeConductorOpenIDBackend',)
+
+        # Enable app in order to connect database models and migrations
         settings['INSTALLED_APPS'] += ('django_openid_auth',)
 
     @staticmethod
@@ -26,8 +37,3 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
     def django_urls():
         from .urls import urlpatterns
         return urlpatterns
-
-    @staticmethod
-    def rest_urls():
-        from .urls import register_in
-        return register_in
