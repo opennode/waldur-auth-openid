@@ -17,6 +17,10 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
         # Generate username from email?
         OPENID_USE_EMAIL_FOR_USERNAME = True
 
+        # When logging in again, should we overwrite user details based on
+        # data received via Simple Registration?
+        OPENID_UPDATE_DETAILS_FROM_SREG = True
+
         NODECONDUCTOR_AUTH_OPENID = {
             'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/'
         }
