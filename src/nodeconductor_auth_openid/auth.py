@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django_openid_auth.auth import OpenIDBackend
 
 
