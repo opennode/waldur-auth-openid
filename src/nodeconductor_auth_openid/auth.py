@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from django.conf import settings
 from django_openid_auth.auth import OpenIDBackend
 
 
@@ -21,3 +22,11 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
 
         if updated_fields:
             user.save(update_fields=updated_fields)
+
+    def create_user_from_openid(self, openid_response):
+        user = super(NodeConductorOpenIDBackend, self).create_user_from_openid(openid_response)
+        method_name = settings.NODECONDUCTOR_AUTH_OPENID.get('NAME', 'openid')
+        user.registration_method = method_name
+        user.save(update_fields=['registration_method'])
+
+        return user

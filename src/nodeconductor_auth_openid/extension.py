@@ -22,7 +22,9 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
         OPENID_UPDATE_DETAILS_FROM_SREG = True
 
         NODECONDUCTOR_AUTH_OPENID = {
-            'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/'
+            'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/',
+            # on user registration following name will be used for user's registration_method field
+            'NAME': 'openid',
         }
 
     @staticmethod
