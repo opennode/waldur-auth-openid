@@ -25,8 +25,14 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
 
     def create_user_from_openid(self, openid_response):
         user = super(NodeConductorOpenIDBackend, self).create_user_from_openid(openid_response)
+
+        openid_identity = openid_response.getSigned('http://specs.openid.net/auth/2.0', 'identity')
+        if openid_identity:
+            user.civil_number = openid_identity.split('/')[-1]
+
         method_name = settings.NODECONDUCTOR_AUTH_OPENID.get('NAME', 'openid')
         user.registration_method = method_name
-        user.save(update_fields=['registration_method'])
+
+        user.save(update_fields=['civil_number', 'registration_method'])
 
         return user
