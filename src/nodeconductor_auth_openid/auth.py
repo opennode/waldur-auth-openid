@@ -28,6 +28,9 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
 
         openid_identity = openid_response.getSigned('http://specs.openid.net/auth/2.0', 'identity')
         if openid_identity:
+            # For rest-test.nodeconductor.com and api-dev.nodeconductor.com expected openid.identity is
+            # https://openid.ee/i/EE:<personal_code> (example: https://openid.ee/i/EE:37605030299);
+            # only the last part (EE:<personal_code>) is stored as civil number.
             user.civil_number = openid_identity.split('/')[-1]
 
         method_name = settings.NODECONDUCTOR_AUTH_OPENID.get('NAME', 'openid')
