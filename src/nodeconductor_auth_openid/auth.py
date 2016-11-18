@@ -1,7 +1,12 @@
 from __future__ import unicode_literals
 
+import logging
+
 from django.conf import settings
 from django_openid_auth.auth import OpenIDBackend
+
+
+logger = logging.getLogger(__name__)
 
 
 class NodeConductorOpenIDBackend(OpenIDBackend):
@@ -28,10 +33,15 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
 
         openid_identity = openid_response.getSigned('http://specs.openid.net/auth/2.0', 'identity')
         if openid_identity:
-            # For rest-test.nodeconductor.com and api-dev.nodeconductor.com expected openid.identity is
-            # https://openid.ee/i/EE:<personal_code> (example: https://openid.ee/i/EE:37605030299);
-            # only the last part (EE:<personal_code>) is stored as civil number.
-            user.civil_number = openid_identity.split('/')[-1]
+            # Expected openid.identity value: https://openid.ee/i/EE:<personal_code>
+            # Example: https://openid.ee/i/EE:37605030299
+            # Only the last part (<personal_code>) is stored as civil number.
+            personal_code = openid_identity.split('/')[-1].split(':')[-1]
+            if personal_code.isdigit():
+                user.civil_number = personal_code
+            else:
+                logger.warning(
+                    'Unable to parse openid.identity {}: personal code is not a numeric value'.format(openid_identity))
 
         method_name = settings.NODECONDUCTOR_AUTH_OPENID.get('NAME', 'openid')
         user.registration_method = method_name
