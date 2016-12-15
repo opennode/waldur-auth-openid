@@ -5,7 +5,8 @@ from . import views
 from django_openid_auth import views as auth_view
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^api-auth/openid/login/$', csrf_exempt(auth_view.login_begin), name='openid-login'),
     url(r'^api-auth/openid/complete/$', auth_view.login_complete, name='openid-complete'),
     url(r'^api-auth/openid/logo.gif$', auth_view.logo, name='openid-logo'),
