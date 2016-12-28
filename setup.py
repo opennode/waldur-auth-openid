@@ -9,13 +9,12 @@ dev_requires = [
 
 install_requires = [
     'django-openid-auth',
-    'nodeconductor>=0.96.0',
+    'nodeconductor>0.108.3',
 ]
-
 
 setup(
     name='nodeconductor-auth-openid',
-    version='0.1.0',
+    version='0.2.0',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://nodeconductor.com',
@@ -39,6 +38,6 @@ setup(
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'Operating System :: OS Independent',
-        'License :: OSI Approved :: Apache Software License',
+        'License :: OSI Approved :: MIT License',
     ],
 )

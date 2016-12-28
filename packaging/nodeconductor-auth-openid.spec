@@ -1,13 +1,13 @@
 Name: nodeconductor-auth-openid
 Summary: NodeConductor OpenID plugin
 Group: Development/Libraries
-Version: 0.1.0
+Version: 0.2.0
 Release: 1.el7
-License: Copyright 2016 OpenNode LLC.  All rights reserved.
+License: MIT
 Url: http://nodeconductor.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: nodeconductor >= 0.96.0
+Requires: nodeconductor > 0.108.3
 Requires: python-django-openid-auth
 
 BuildArch: noarch
@@ -35,6 +35,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 
 %changelog
+* Wed Dec 28 2016 Jenkins <jenkins@opennodecloud.com> - 0.2.0-1.el7
+- New upstream release
+
 * Tue May 31 2016 Jenkins <jenkins@opennodecloud.com> - 0.1.0-1.el7
 - New upstream release
 
