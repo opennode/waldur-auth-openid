@@ -1,6 +1,13 @@
 from __future__ import unicode_literals
 
+from django.utils.module_loading import import_string
+
 from nodeconductor.core import NodeConductorExtension
+
+
+# This function is needed in order to break circular dependency
+def login_failed(request, args, **kwargs):
+    return import_string('nodeconductor_auth_openid.views.login_failed')(request, args, **kwargs)
 
 
 class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
@@ -23,9 +30,12 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
 
         NODECONDUCTOR_AUTH_OPENID = {
             'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/',
+            'LOGIN_FAILED_URL_TEMPLATE': 'http://example.com/#/login_failed/{token}/',
             # on user registration following name will be used for user's registration_method field
             'NAME': 'openid',
         }
+
+        OPENID_RENDER_FAILURE = login_failed
 
     @staticmethod
     def update_settings(settings):
