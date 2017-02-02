@@ -49,3 +49,7 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
         user.save(update_fields=['civil_number', 'registration_method'])
 
         return user
+
+    def _get_preferred_username(self, nickname, email):
+        nickname = super(NodeConductorOpenIDBackend, self)._get_preferred_username(nickname, email)
+        return nickname.replace(' ', '')
