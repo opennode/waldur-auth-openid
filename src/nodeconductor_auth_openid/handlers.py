@@ -1,6 +1,8 @@
 from . import utils
 
 
+# Civil number should be updated after each login because it can be changed or
+# defined for user.
 def save_civil_number(request, openid_response, **kwargs):
     if 'openid.identity' not in request.GET:
         return
