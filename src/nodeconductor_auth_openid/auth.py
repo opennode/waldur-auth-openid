@@ -22,6 +22,14 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
             user.email = details['email']
             updated_fields.append('email')
 
+        # Civil number should be updated after each login because it can be changed or
+        # defined for user.
+        if 'openid.identity' in details:
+            civil_number = utils.get_civil_number(details['openid.identity'])
+            if user.civil_number != civil_number:
+                user.civil_number = civil_number
+                updated_fields.append('civil_number')
+
         if updated_fields:
             user.save(update_fields=updated_fields)
 
