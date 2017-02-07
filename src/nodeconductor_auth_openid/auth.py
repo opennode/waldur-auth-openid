@@ -25,31 +25,44 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
             user.email = details['email']
             updated_fields.append('email')
 
+        # Civil number should be updated after each login because it can be changed or
+        # defined for user.
+        civil_number = self._get_civil_number(openid_response)
+        if user.civil_number != civil_number:
+            user.civil_number = civil_number
+            updated_fields.append('civil_number')
+
         if updated_fields:
             user.save(update_fields=updated_fields)
 
     def create_user_from_openid(self, openid_response):
         user = super(NodeConductorOpenIDBackend, self).create_user_from_openid(openid_response)
 
-        openid_identity = openid_response.getSigned('http://specs.openid.net/auth/2.0', 'identity')
-        if openid_identity:
-            # Expected openid.identity value: https://openid.ee/i/EE:<personal_code>
-            # Example: https://openid.ee/i/EE:37605030299
-            # Only the last part (<personal_code>) is stored as civil number.
-            personal_code = openid_identity.split('/')[-1].split(':')[-1]
-            if personal_code.isdigit():
-                user.civil_number = personal_code
-            else:
-                logger.warning(
-                    'Unable to parse openid.identity {}: personal code is not a numeric value'.format(openid_identity))
-
-        method_name = settings.NODECONDUCTOR_AUTH_OPENID.get('NAME', 'openid')
-        user.registration_method = method_name
+        user.civil_number = self._get_civil_number(openid_response)
+        user.registration_method = settings.NODECONDUCTOR_AUTH_OPENID.get('NAME', 'openid')
 
         user.save(update_fields=['civil_number', 'registration_method'])
-
         return user
 
     def _get_preferred_username(self, nickname, email):
         nickname = super(NodeConductorOpenIDBackend, self)._get_preferred_username(nickname, email)
         return nickname.replace(' ', '')
+
+    def _get_civil_number(self, openid_response):
+        """
+        Extract civil number from OpenID response.
+        Return empty string if personal code is not defined.
+
+        Expected openid.identity value: https://openid.ee/i/EE:<personal_code>
+        Example: https://openid.ee/i/EE:37605030299
+        Only the last part (<personal_code>) is stored as civil number.
+        """
+        openid_identity = openid_response.getSigned('http://specs.openid.net/auth/2.0', 'identity')
+
+        personal_code = openid_identity.split('/')[-1].split(':')[-1]
+        if personal_code.isdigit():
+            return personal_code
+        else:
+            logger.warning(
+                'Unable to parse openid.identity {}: personal code is not a numeric value'.format(openid_identity))
+            return ''
