@@ -30,7 +30,7 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
 
         NODECONDUCTOR_AUTH_OPENID = {
             'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/',
-            'LOGIN_FAILED_URL_TEMPLATE': 'http://example.com/#/login_failed/{token}/',
+            'LOGIN_FAILED_URL_TEMPLATE': 'http://example.com/#/login_failed/',
             # on user registration following name will be used for user's registration_method field
             'NAME': 'openid',
         }
