@@ -8,7 +8,7 @@ dev_requires = [
 ]
 
 install_requires = [
-    'django-openid-auth>=0.13.0',
+    'django-openid-auth>=0.13',
     'nodeconductor>0.108.3',
 ]
 
