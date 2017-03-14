@@ -60,6 +60,7 @@ def patched_parse_openid_response(request):
     openid_response = origin_parse_openid_response(request)
     if openid_response and openid_response.status == auth_view.SUCCESS:
         openid_response.origin_identity = origin_identity
+    return openid_response
 
 
 # XXX Monkey-patch parse_openid_response to perform additional query against email-based URL
