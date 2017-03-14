@@ -8,7 +8,7 @@ Url: http://nodeconductor.com
 Source0: %{name}-%{version}.tar.gz
 
 Requires: nodeconductor > 0.108.3
-Requires: python-django-openid-auth
+Requires: python-django-openid-auth >= 0.13.0
 
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
