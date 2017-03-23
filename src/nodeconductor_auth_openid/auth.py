@@ -57,11 +57,7 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
         Example: https://openid.ee/i/EE:37605030299
         Only the last part (<personal_code>) is stored as civil number.
         """
-        if hasattr(openid_response, 'origin_identity'):
-            # XXX: Restore origin value that was patched by views.patched_parse_openid_response
-            openid_identity = openid_response.origin_identity
-        else:
-            openid_identity = openid_response.getSigned('http://specs.openid.net/auth/2.0', 'identity')
+        openid_identity = openid_response.getSigned('http://specs.openid.net/auth/2.0', 'identity')
 
         personal_code = openid_identity.split('/')[-1].split(':')[-1]
         if personal_code.isdigit():
