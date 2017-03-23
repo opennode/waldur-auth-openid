@@ -28,7 +28,7 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
         # Civil number should be updated after each login because it can be changed or
         # defined for user.
         civil_number = self._get_civil_number(openid_response)
-        if user.civil_number != civil_number:
+        if civil_number and user.civil_number != civil_number:
             user.civil_number = civil_number
             updated_fields.append('civil_number')
 
