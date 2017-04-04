@@ -1,7 +1,7 @@
 Name: nodeconductor-auth-openid
 Summary: NodeConductor OpenID plugin
 Group: Development/Libraries
-Version: 0.4.1
+Version: 0.4.2
 Release: 1.el7
 License: MIT
 Url: http://nodeconductor.com
@@ -35,6 +35,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 
 %changelog
+* Tue Apr 4 2017 Jenkins <jenkins@opennodecloud.com> - 0.4.2-1.el7
+- New upstream release
+
 * Wed Mar 15 2017 Jenkins <jenkins@opennodecloud.com> - 0.4.1-1.el7
 - New upstream release
 
