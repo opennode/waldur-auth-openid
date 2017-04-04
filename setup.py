@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import sys
 from setuptools import setup, find_packages
 
 
@@ -14,7 +13,7 @@ install_requires = [
 
 setup(
     name='nodeconductor-auth-openid',
-    version='0.4.1',
+    version='0.4.2',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://nodeconductor.com',
