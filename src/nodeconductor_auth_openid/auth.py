@@ -37,11 +37,12 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
 
     def create_user_from_openid(self, openid_response):
         user = super(NodeConductorOpenIDBackend, self).create_user_from_openid(openid_response)
-
-        user.civil_number = self._get_civil_number(openid_response)
+        civil_number = self._get_civil_number(openid_response)
+        if civil_number and user.civil_number != civil_number:
+            user.civil_number = civil_number
         user.registration_method = settings.NODECONDUCTOR_AUTH_OPENID.get('NAME', 'openid')
 
-        user.save(update_fields=['civil_number', 'registration_method'])
+        user.save()
         return user
 
     def _get_preferred_username(self, nickname, email):
