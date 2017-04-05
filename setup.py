@@ -13,7 +13,7 @@ install_requires = [
 
 setup(
     name='nodeconductor-auth-openid',
-    version='0.4.2',
+    version='0.4.3',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://nodeconductor.com',
