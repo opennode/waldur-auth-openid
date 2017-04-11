@@ -7,7 +7,7 @@ License: MIT
 Url: http://nodeconductor.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: nodeconductor > 0.108.3
+Requires: nodeconductor >= 0.134.0
 Requires: python-django-openid-auth >= 0.13
 
 BuildArch: noarch
