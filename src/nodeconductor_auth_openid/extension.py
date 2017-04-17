@@ -21,9 +21,6 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
         # Should users be created when new OpenIDs are used to log in?
         OPENID_CREATE_USERS = True
 
-        # Generate username from email?
-        OPENID_USE_EMAIL_FOR_USERNAME = True
-
         # When logging in again, should we overwrite user details based on
         # data received via Simple Registration?
         OPENID_UPDATE_DETAILS_FROM_SREG = True

@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import logging
+import uuid
 
 from django.conf import settings
 from django_openid_auth.auth import OpenIDBackend
@@ -46,8 +47,7 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
         return user
 
     def _get_preferred_username(self, nickname, email):
-        nickname = super(NodeConductorOpenIDBackend, self)._get_preferred_username(nickname, email)
-        return nickname.replace(' ', '')
+        return uuid.uuid4().hex[:30]
 
     def _get_civil_number(self, openid_response):
         """
