@@ -25,6 +25,7 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
         # data received via Simple Registration?
         OPENID_UPDATE_DETAILS_FROM_SREG = True
 
+        # wiki: https://opennode.atlassian.net/wiki/display/WD/AuthOpenID+plugin+configuration
         NODECONDUCTOR_AUTH_OPENID = {
             'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/',
             'LOGIN_FAILED_URL_TEMPLATE': 'http://example.com/#/login_failed/',
