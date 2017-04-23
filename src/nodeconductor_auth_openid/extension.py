@@ -21,13 +21,11 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
         # Should users be created when new OpenIDs are used to log in?
         OPENID_CREATE_USERS = True
 
-        # Generate username from email?
-        OPENID_USE_EMAIL_FOR_USERNAME = True
-
         # When logging in again, should we overwrite user details based on
         # data received via Simple Registration?
         OPENID_UPDATE_DETAILS_FROM_SREG = True
 
+        # wiki: https://opennode.atlassian.net/wiki/display/WD/AuthOpenID+plugin+configuration
         NODECONDUCTOR_AUTH_OPENID = {
             'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/',
             'LOGIN_FAILED_URL_TEMPLATE': 'http://example.com/#/login_failed/',
