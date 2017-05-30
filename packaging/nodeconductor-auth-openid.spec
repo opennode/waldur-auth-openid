@@ -1,5 +1,5 @@
 Name: nodeconductor-auth-openid
-Summary: NodeConductor OpenID plugin
+Summary: Waldur OpenID plugin
 Group: Development/Libraries
 Version: 0.6.0
 Release: 1.el7
@@ -7,7 +7,7 @@ License: MIT
 Url: http://nodeconductor.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: nodeconductor >= 0.134.0
+Requires: nodeconductor > 0.138.0
 Requires: python-django-openid-auth >= 0.14
 
 BuildArch: noarch
@@ -16,7 +16,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: python-setuptools
 
 %description
-NodeConductor plugin bringing OpenID-based authentication support.
+Waldur plugin bringing OpenID-based authentication support.
 
 %prep
 %setup -q -n %{name}-%{version}
