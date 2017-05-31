@@ -7,17 +7,17 @@ dev_requires = [
 ]
 
 install_requires = [
-    'django-openid-auth>=0.13',
-    'nodeconductor>=0.134.0',
+    'django-openid-auth>=0.14',
+    'nodeconductor>0.138.0',
 ]
 
 setup(
     name='nodeconductor-auth-openid',
-    version='0.6.0',
+    version='0.7.0',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
-    url='http://nodeconductor.com',
-    description='NodeConductor plugin bringing OpenID-based authentication support.',
+    url='http://waldur.com',
+    description='Waldur plugin bringing OpenID-based authentication support.',
     long_description=open('README.rst').read(),
     package_dir={'': 'src'},
     packages=find_packages('src', exclude=['*.tests', '*.tests.*', 'tests.*', 'tests']),

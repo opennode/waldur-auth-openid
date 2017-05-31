@@ -1,14 +1,14 @@
 Name: nodeconductor-auth-openid
-Summary: NodeConductor OpenID plugin
+Summary: Waldur OpenID plugin
 Group: Development/Libraries
-Version: 0.6.0
+Version: 0.7.0
 Release: 1.el7
 License: MIT
 Url: http://nodeconductor.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: nodeconductor >= 0.134.0
-Requires: python-django-openid-auth >= 0.13
+Requires: nodeconductor > 0.138.0
+Requires: python-django-openid-auth >= 0.14
 
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -16,7 +16,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: python-setuptools
 
 %description
-NodeConductor plugin bringing OpenID-based authentication support.
+Waldur plugin bringing OpenID-based authentication support.
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -35,6 +35,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 
 %changelog
+* Wed May 31 2017 Jenkins <jenkins@opennodecloud.com> - 0.7.0-1.el7
+- New upstream release
+
 * Sun Apr 23 2017 Jenkins <jenkins@opennodecloud.com> - 0.6.0-1.el7
 - New upstream release
 
