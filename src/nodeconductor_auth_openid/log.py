@@ -1,7 +1,13 @@
+from django.contrib.auth import get_user_model
+
 from nodeconductor.logging.loggers import EventLogger, event_logger
 
 
+User = get_user_model()
+
+
 class OpenIDEventLogger(EventLogger):
+    user = User
 
     class Meta:
         event_types = ('auth_logged_in_with_openid',)
