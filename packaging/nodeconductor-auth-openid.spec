@@ -4,11 +4,11 @@ Group: Development/Libraries
 Version: 0.7.0
 Release: 1.el7
 License: MIT
-Url: http://nodeconductor.com
+Url: http://waldur.com
 Source0: %{name}-%{version}.tar.gz
 
 Requires: nodeconductor > 0.138.0
-Requires: python-django-openid-auth >= 0.14
+Requires: python-django-openid-auth >= 0.14-2
 
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
