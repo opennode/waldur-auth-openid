@@ -20,8 +20,9 @@ def login_complete(request):
     url_template = settings.NODECONDUCTOR_AUTH_OPENID['LOGIN_URL_TEMPLATE']
     url = url_template.format(token=token.key)
     event_logger.auth_openid.info(
-        'User {user_username} with full name {user_full_name} authenticated successfully with OpenID.',
+        'User {user_full_name} authenticated successfully with eID.',
         event_type='auth_logged_in_with_openid',
+        event_context={'user': request.user}
     )
     return HttpResponseRedirect(url)
 
