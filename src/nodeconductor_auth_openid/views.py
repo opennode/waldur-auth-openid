@@ -22,6 +22,7 @@ def login_complete(request):
     event_logger.auth_openid.info(
         'User {user_username} with full name {user_full_name} authenticated successfully with OpenID.',
         event_type='auth_logged_in_with_openid',
+        event_context={'user': request.user}
     )
     return HttpResponseRedirect(url)
 
