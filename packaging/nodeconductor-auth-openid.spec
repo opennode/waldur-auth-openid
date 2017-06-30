@@ -1,13 +1,13 @@
 Name: nodeconductor-auth-openid
 Summary: Waldur OpenID plugin
 Group: Development/Libraries
-Version: 0.8.1
+Version: 0.8.2
 Release: 1.el7
 License: MIT
 Url: http://waldur.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: nodeconductor > 0.138.0
+Requires: waldur-core > 0.138.0
 Requires: python-django-openid-auth >= 0.14-2
 
 BuildArch: noarch
@@ -35,6 +35,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 
 %changelog
+* Fri Jun 30 2017 Jenkins <jenkins@opennodecloud.com> - 0.8.2-1.el7
+- New upstream release
+
 * Fri Jun 9 2017 Jenkins <jenkins@opennodecloud.com> - 0.8.1-1.el7
 - New upstream release
 
