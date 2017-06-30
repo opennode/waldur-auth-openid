@@ -7,7 +7,7 @@ License: MIT
 Url: http://waldur.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: nodeconductor > 0.138.0
+Requires: waldur-core > 0.138.0
 Requires: python-django-openid-auth >= 0.14-2
 
 BuildArch: noarch
