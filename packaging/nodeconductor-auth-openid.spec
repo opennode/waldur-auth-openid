@@ -1,4 +1,4 @@
-Name: nodeconductor-auth-openid
+Name: waldur-auth-openid
 Summary: Waldur OpenID plugin
 Group: Development/Libraries
 Version: 0.8.2
@@ -14,6 +14,8 @@ BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires: python-setuptools
+
+Obsoletes: nodeconductor-auth-openid
 
 %description
 Waldur plugin bringing OpenID-based authentication support.
