@@ -1,5 +1,5 @@
 Name: waldur-auth-openid
-Summary: Waldur OpenID plugin
+Summary: Waldur Auth OpenID plugin
 Group: Development/Libraries
 Version: 0.8.5
 Release: 1.el7
