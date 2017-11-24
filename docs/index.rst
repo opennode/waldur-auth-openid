@@ -1,7 +1,7 @@
-Welcome to NodeConductor OpenID plugin's documentation!
-=======================================================
+Welcome to Waldur Auth OpenID plugin's documentation!
+=====================================================
 
-NodeConductor plugin bringing OpenID-based authentication support.
+Waldur plugin bringing OpenID-based authentication support.
 
 Guide
 -----
@@ -30,7 +30,7 @@ Endpoints
 License
 -------
 
-NodeConductor OpenID plugin is open-source under MIT license.
+Waldur Auth OpenID plugin is open-source under MIT license.
 
 
 Indices and tables

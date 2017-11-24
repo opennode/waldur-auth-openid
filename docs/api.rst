@@ -1,1 +1,1 @@
-NodeConductor OpenID API documentation goes here!
+Waldur Auth OpenID API documentation goes here!

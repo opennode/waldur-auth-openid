@@ -12,7 +12,7 @@ class LoginTest(TestCase):
         error_message = 'Disabled account'
         expected_url = 'http://example.com/#/login_failed/?message=Disabled+account'
 
-        with self.settings(NODECONDUCTOR_AUTH_OPENID=settings):
+        with self.settings(WALDUR_AUTH_OPENID=settings):
             response = login_failed(None, error_message)
             self.assertEqual(response.status_code, status.HTTP_302_FOUND)
             self.assertEqual(response['Location'], expected_url)
