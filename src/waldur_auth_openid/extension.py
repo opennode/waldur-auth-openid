@@ -7,10 +7,10 @@ from nodeconductor.core import NodeConductorExtension
 
 # This function is needed in order to break circular dependency
 def login_failed(request, args, **kwargs):
-    return import_string('nodeconductor_auth_openid.views.login_failed')(request, args, **kwargs)
+    return import_string('waldur_auth_openid.views.login_failed')(request, args, **kwargs)
 
 
-class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
+class WaldurAuthOpenIDExtension(NodeConductorExtension):
     class Settings:
 
         # the library python-openid does not support a json session serializer
@@ -26,7 +26,7 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
         OPENID_UPDATE_DETAILS_FROM_SREG = True
 
         # wiki: https://opennode.atlassian.net/wiki/display/WD/AuthOpenID+plugin+configuration
-        NODECONDUCTOR_AUTH_OPENID = {
+        WALDUR_AUTH_OPENID = {
             'LOGIN_URL_TEMPLATE': 'http://example.com/#/login_complete/{token}/',
             'LOGIN_FAILED_URL_TEMPLATE': 'http://example.com/#/login_failed/',
             # on user registration following name will be used for user's registration_method field
@@ -38,14 +38,14 @@ class NodeConductorAuthOpenIDExtension(NodeConductorExtension):
     @staticmethod
     def update_settings(settings):
         # Enable customer OpenID authentication backend
-        settings['AUTHENTICATION_BACKENDS'] += ('nodeconductor_auth_openid.auth.NodeConductorOpenIDBackend',)
+        settings['AUTHENTICATION_BACKENDS'] += ('waldur_auth_openid.auth.WaldurOpenIDBackend',)
 
         # Enable app in order to connect database models and migrations
         settings['INSTALLED_APPS'] += ('django_openid_auth',)
 
     @staticmethod
     def django_app():
-        return 'nodeconductor_auth_openid'
+        return 'waldur_auth_openid'
 
     @staticmethod
     def django_urls():

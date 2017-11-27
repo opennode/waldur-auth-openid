@@ -12,8 +12,8 @@ install_requires = [
 ]
 
 setup(
-    name='nodeconductor-auth-openid',
-    version='0.8.5',
+    name='waldur-auth-openid',
+    version='0.8.6',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://waldur.com',
@@ -29,7 +29,7 @@ setup(
     },
     entry_points={
         'nodeconductor_extensions': (
-            'nodeconductor_auth_openid = nodeconductor_auth_openid.extension:NodeConductorAuthOpenIDExtension',
+            'waldur_auth_openid = waldur_auth_openid.extension:WaldurAuthOpenIDExtension',
         ),
     },
     include_package_data=True,

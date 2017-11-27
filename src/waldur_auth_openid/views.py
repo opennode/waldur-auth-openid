@@ -17,7 +17,7 @@ def login_complete(request):
     Redirects user agent to frontend view with valid token as hash parameter.
     """
     token = RefreshTokenMixin().refresh_token(request.user)
-    url_template = settings.NODECONDUCTOR_AUTH_OPENID['LOGIN_URL_TEMPLATE']
+    url_template = settings.WALDUR_AUTH_OPENID['LOGIN_URL_TEMPLATE']
     url = url_template.format(token=token.key)
     event_logger.auth_openid.info(
         'User {user_full_name} authenticated successfully with eID.',
@@ -28,7 +28,7 @@ def login_complete(request):
 
 
 def login_failed(request, message):
-    url_template = settings.NODECONDUCTOR_AUTH_OPENID['LOGIN_FAILED_URL_TEMPLATE']
+    url_template = settings.WALDUR_AUTH_OPENID['LOGIN_FAILED_URL_TEMPLATE']
     params = six.moves.urllib.parse.urlencode(dict(message=message))
     url = '%s?%s' % (url_template, params)
     return HttpResponseRedirect(url)

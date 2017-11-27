@@ -10,7 +10,7 @@ from django_openid_auth.auth import OpenIDBackend
 logger = logging.getLogger(__name__)
 
 
-class NodeConductorOpenIDBackend(OpenIDBackend):
+class WaldurOpenIDBackend(OpenIDBackend):
     """ This backend sets user's full_name and email. """
 
     def update_user_details(self, user, details, openid_response):
@@ -37,11 +37,11 @@ class NodeConductorOpenIDBackend(OpenIDBackend):
             user.save(update_fields=updated_fields)
 
     def create_user_from_openid(self, openid_response):
-        user = super(NodeConductorOpenIDBackend, self).create_user_from_openid(openid_response)
+        user = super(WaldurOpenIDBackend, self).create_user_from_openid(openid_response)
         civil_number = self._get_civil_number(openid_response)
         if civil_number and user.civil_number != civil_number:
             user.civil_number = civil_number
-        user.registration_method = settings.NODECONDUCTOR_AUTH_OPENID.get('NAME', 'openid')
+        user.registration_method = settings.WALDUR_AUTH_OPENID.get('NAME', 'openid')
 
         user.save()
         return user
