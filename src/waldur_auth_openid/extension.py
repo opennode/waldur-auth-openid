@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.utils.module_loading import import_string
 
-from nodeconductor.core import NodeConductorExtension
+from waldur_core.core import WaldurExtension
 
 
 # This function is needed in order to break circular dependency
@@ -10,7 +10,7 @@ def login_failed(request, args, **kwargs):
     return import_string('waldur_auth_openid.views.login_failed')(request, args, **kwargs)
 
 
-class WaldurAuthOpenIDExtension(NodeConductorExtension):
+class WaldurAuthOpenIDExtension(WaldurExtension):
     class Settings:
 
         # the library python-openid does not support a json session serializer
