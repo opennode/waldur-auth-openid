@@ -8,7 +8,7 @@ dev_requires = [
 
 install_requires = [
     'django-openid-auth>=0.14',
-    'waldur_core>0.138.0',
+    'waldur-core>=0.151.0',
 ]
 
 setup(
