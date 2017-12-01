@@ -1,13 +1,13 @@
 Name: waldur-auth-openid
 Summary: Waldur Auth OpenID plugin
 Group: Development/Libraries
-Version: 0.8.6
+Version: 0.8.7
 Release: 1.el7
 License: MIT
 Url: http://waldur.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: waldur-core > 0.138.0
+Requires: waldur-core >= 0.151.0
 Requires: python-django-openid-auth >= 0.14-2
 
 BuildArch: noarch
@@ -38,6 +38,9 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
+* Fri Dec 1 2017 Jenkins <jenkins@opennodecloud.com> - 0.8.7-1.el7
+- New upstream release
+
 * Mon Nov 27 2017 Jenkins <jenkins@opennodecloud.com> - 0.8.6-1.el7
 - New upstream release
 

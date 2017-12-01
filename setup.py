@@ -8,12 +8,12 @@ dev_requires = [
 
 install_requires = [
     'django-openid-auth>=0.14',
-    'nodeconductor>0.138.0',
+    'waldur-core>=0.151.0',
 ]
 
 setup(
     name='waldur-auth-openid',
-    version='0.8.6',
+    version='0.8.7',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://waldur.com',
@@ -28,7 +28,7 @@ setup(
         'dev': dev_requires,
     },
     entry_points={
-        'nodeconductor_extensions': (
+        'waldur_extensions': (
             'waldur_auth_openid = waldur_auth_openid.extension:WaldurAuthOpenIDExtension',
         ),
     },

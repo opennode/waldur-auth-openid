@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 
-from nodeconductor.logging.loggers import EventLogger, event_logger
+from waldur_core.logging.loggers import EventLogger, event_logger
 
 
 User = get_user_model()
