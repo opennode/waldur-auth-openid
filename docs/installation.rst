@@ -15,7 +15,3 @@ Installation
 
     cd /path/to/waldur-auth-openid/
     python setup.py install
-
-* Define configuration settings: LOGIN_URL_TEMPLATE and LOGIN_FAILED_URL_TEMPLATE
-
-The former is used if login has succeeded, the latter is used if login has failed.
