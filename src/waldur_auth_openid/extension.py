@@ -29,9 +29,14 @@ class WaldurAuthOpenIDExtension(WaldurExtension):
         WALDUR_AUTH_OPENID = {
             # on user registration following name will be used for user's registration_method field
             'NAME': 'openid',
+            'LOGOUT_URL': 'https://openid.ee/auth/logout',
         }
 
         OPENID_RENDER_FAILURE = login_failed
+
+    @staticmethod
+    def get_public_settings():
+        return ['LOGOUT_URL']
 
     @staticmethod
     def update_settings(settings):
