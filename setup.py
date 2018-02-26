@@ -13,7 +13,7 @@ install_requires = [
 
 setup(
     name='waldur-auth-openid',
-    version='0.8.8',
+    version='0.8.9',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://waldur.com',
